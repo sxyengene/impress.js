@@ -28,6 +28,7 @@
     "test:sauce": "karma start karma.conf-sauce.js"
   },
   "devDependencies": {
+    "cheerio": "^0.22.0",
     "chrome": "0.1.0",
     "jscs": "2.11.0",
     "jshint": "2.9.1",
