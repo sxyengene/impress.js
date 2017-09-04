@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="title">
+		title
+	</div>
+	<script>
+
+
+
+		
+		var innerHTMLdescriptor = Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML');
+		Object.defineProperty(Element.prototype, 'innerHTML',
+		{
+			set: function(htmlVal)
+			{
+				innerHTMLdescriptor.set.call(this, htmlVal);
+			}
+		});
+
+		
+		var pattern = {
+			set:function(value){
+				return value;
+			}
+		}
+		var obj = {
+			title:'title'
+		};
+
+		Object.defineProperty(obj,'title',pattern);
+	</script>
+</body>
+</html>

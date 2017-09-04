@@ -39,11 +39,11 @@ function handleHtml($){
     content = title + '\n' + text;
 
 
-    fs.writeFile('a.txt',content,{
+    fs.writeFile('b.txt',content,{
         flag:'a'
     });
 
-    if(crid == 3877627){
+    if(crid == 3966326){
         return;
     }
     

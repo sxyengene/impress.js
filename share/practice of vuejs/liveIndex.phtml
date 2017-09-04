@@ -1,0 +1,1127 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-touch-fullscreen" content="YES" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <title>金九银十，哪些板块？龙头在哪？如何配置？</title>
+                    <link rel="stylesheet" href="//s.thsi.cn/cb?css/m/;common.css;adblock.css">
+        <link rel="stylesheet" href="//s.thsi.cn/cb?sns/css/circle/wapcircle/1.1.0/;common-c3498c.css;btn-695a3d.css">
+        <script type="text/javascript" src='//s.thsi.cn/cb?;js/m/common/zepto.js;/sns/js/mobile/vuejs/vue-2.1.8-min.js;/sns/sea-modules/gallery/zeptoModule/deferred.min.js'></script>
+        <script type="text/javascript" src="//s.thsi.cn/cb?js/m/common/;user.js;basic.js;bridge.js;scroll.js;cookie.js;js/m/business/;stat.js;share.js;js/m/;ta.js&20160707"></script>
+        <script src="//s.thsi.cn/cb?js/ta_https.min.20161221.js;;sns/js/core/Ta/ta-plus-1.0.0.js"></script>
+        <script type="text/javascript" src='//s.thsi.cn/cb?sns/sea-modules/circle/wapcircle/1.1.0/;common-510efd.js;interface-2d7ebb.js'></script>
+    </head>
+<body>  	<link rel="stylesheet" href="//s.thsi.cn/cb?sns/css/circle/wapcircle/1.1.0/liveIndex-8e6215.css">
+	<script src="//s.thsi.cn/cb?sns/sea-modules/circle/wapcircle/1.1.0/liveIndex-0123b0.js;sns/sea-modules/trace/wap/1.1.0/scroll-717aed.js"></script>
+	<script src="//s.thsi.cn/sns/require-modules/countUp.js"></script>
+
+<script type="text/javascript">
+	
+	var initData = {
+		//glo数据
+		GParam: {
+			fid: 15109, 	//频道id
+			sid: 6057, //show的id【就是live的id】
+			topFiftyLink: 'http://t.10jqka.com.cn/m/zhibo/index.html?from=all', //top50链接
+			livestatus: 1, // 需要初始化渲染一下 审核下线 -2 已结束开启新live -1 待审核 0 进行中 1 结束未开启新live 2
+			isGuest: 0, 	//是否是嘉宾或者播主 是播主或嘉宾1
+			channelLink: 'http://t.10jqka.com.cn/m/zhibo/15109.html', //频道链接
+			channelTitle: '爱钻的众神殿', //频道的名称 for share
+			liveIntro: '金九银十，哪些板块？龙头在哪？如何配置？', //live简介 for share
+			liveDetailLink: 'http://t.10jqka.com.cn/m/zhibo/15109/live/6057/intro', //live详情页面链接
+			Gpagestat: 'sns_live_channel_live_6057',
+			chatLink: 'http://t.10jqka.com.cn/m/zhibo/15109/live/6057/chat',	//聊天室链接
+		},
+
+		//公告
+		notice: {
+			md5: '',
+			title: '',
+			content: ''
+		},
+
+		//头部使用数据
+		headData: {
+			isMaster: 0,
+			isFollow: 0,
+			avatar: '//u.thsi.cn/fileupload/data/Circle/15109.jpg',
+			title: '金九银十，哪些板块？龙头在哪？如何配置？',
+			joinersList: ["\/\/u.thsi.cn\/avatar\/9638\/305559638.gif"],
+		},
+
+		bottomData: {
+			
+		}
+	};
+
+</script>
+
+<div class="wap-container">
+	<div class="live-wrap" id="live-wrap" v-cloak>
+		<template v-if="GParam.livestatus != -2" class="wrap-template"> <!--是否违规-->
+			<div class="live-head cfff" :data-funcstatid="GParam.Gpagestat+'.intro'" @click="headJumpToDetail">
+				<!-- <div class="live-head-body zk clearfix" :data-funcstatid="GParam.Gpagestat+'.detail'" v-show="headData.headZK">
+					<div class="live-head-left fl">
+						<div class="live-head-title line2wrap">{{headData.title}}</div>
+						<div class="live-head-joiner clearfix" v-show="headData.joinersList.length > 0">
+							<div class="joiner-box fl">
+								<ul class="joiner-box-wrap clearfix">
+									<img :src="joinerSrc" alt="" class="fl joiner-box-item" v-for="joinerSrc in headData.joinersList">
+								</ul>
+							</div>
+							<div class="fl">参与直播</div>
+						</div>
+					</div>
+					<div class="live-head-right fr">
+						<div class="live-head-avatar" @click.stop="jumpToChannel"><img :src="headData.avatar" alt=""></div>
+						<div class="live-head-focusBox tac" @click.stop="commonFocusEvent" v-show="!headData.isMaster">
+							<template v-if="!headData.isFollow">
+								<i class="live-icon-focus"></i><div class="head-focus-word tal">订阅</div>
+							</template>
+							<template v-else>
+								<span class="tac">已订阅</span>
+							</template>
+						</div>
+					</div>
+				</div>
+
+				<div class="live-head-body sq clearfix" v-show="!headData.headZK">
+					<div class="head-sq-avatar fl"><img :src="headData.avatar" alt=""></div>
+					<div class="head-sq-title fl textwrap">{{headData.title}}</div>
+					<div class="fr head-sq-focus por" v-if="!headData.isMaster && !headData.isFollow" @click.stop="commonFocusEvent"><i class="live-icon-focus"></i><div class="head-focus-word">订阅</div></div>
+				</div> -->
+				<div class="simgle-live-head blacktext rem14 clearfix">
+					<div class="fl ptb18rem">
+						<img class="joiner-box-item" v-for="joinerSrc in headData.joinersList"  :src="joinerSrc" alt="">
+					</div>
+					<div class="fl ml10rem ptb18rem">参与直播</div>
+					<div class="fr ptb18rem redtext" v-show="!headData.isFollow && !headData.isMaster" @click.stop="commonFocusEvent">订阅频道 +</div>
+					<div class="fr ptb18rem redtext" v-show="headData.isFollow || headData.isMaster" @click.stop="jumpToChannel">进入频道 ></div>
+				</div>
+			</div>
+
+			<div class="live-body">
+				<div class="liveList-data-wrap bgfff">
+					<!-- <div class="forStandard-greenLive hide" v-if="bodyData.hasLive && GParam.livestatus == 1">同花顺倡导绿色直播。任何转播违法、违规、低俗、暴力、代客理财、联系方式、广告推销等不良信息，官方将严肃处理。</div> -->
+
+					<div class="live-end" v-if="GParam.livestatus != 1">LIVE直播结束</div>
+
+					<livelist-tpl :body-data="bodyData" :head-data="headData" :G-param="GParam" ref="liveList-child"></livelist-tpl>
+
+					<div class="txtLoading" v-show="bodyData.hasLive && bodyData.loadHisLock && bodyData.initLoadOverFlag">
+						<div class="loadHisOver">没有更多了</div>
+					</div>
+				</div>
+
+				<div class="live-body-kong" v-if="!bodyData.hasLive">
+					<!--空状态-->
+					<img src="//i.thsi.cn/sns/circle/wapcircle/img2/show/live-list-kong.png" alt="" class="body-kong-img">
+					<div class="body-kong-note">播主消失了，点个赞召唤他</div>
+				</div>
+				
+				<div class="live-body-toTop" v-show="bodyData.isToTopShow" @click="scrollToTop">前往顶部</div>
+			</div>
+
+			<div class="live-bottom">
+				<div class="live-bottom-wrap rowflex">
+					<div class="live-bottom-chatBtn fl" @click="jumpToChat" :data-funcstatid="GParam.Gpagestat+'.chat'">
+						<i class="live-operate-chatBtn"></i>
+						<div class="chat-num" id="chat-num">0</div>
+					</div>
+					<template v-if="GParam.livestatus == 1 || GParam.livestatus == 2">
+						<div class="live-bottom-input flex1" :data-funcstatid="GParam.Gpagestat+'.input'"  @click="showEditor('editor')">我来说两句</div>
+
+						<div class="danmu-btn" :data-funcstatid="bottomData.danmuInit.isOpen ? GParam.Gpagestat+'.danmu.off':GParam.Gpagestat+'.danmu.on'" @click="operateDanmu"><i :class="bottomData.danmuInit.isOpen ? 'danmu-open-icon':'danmu-close-icon'"></i></div>
+
+						<div class="live-bottom-shareBtn " @click.stop="operateShareLive"><i class="live-share-icon"></i></div>
+					</template>
+					<template v-else-if="GParam.livestatus == -1">
+						<template v-if="GParam.isInPage">
+							<div class="rem16 c666 over-txt flex1" @click="jumpToChannel">live讨论已结束，前往新的live>></div>
+						</template>
+						<template v-else>
+							<div class="rem16 c666 over-txt flex1">live讨论已结束</div>
+						</template>
+					</template>
+				</div>
+				<div class="live-bottom-zan" v-if="GParam.livestatus == 1">
+					<div class="live-bottom-zanWrap por">
+						<div class="live-zan-wrap" :data-funcstatid="GParam.Gpagestat+'.like'" @touchstart="liveZanClick">
+							<i class="live-zan-icon" :class="bottomData.zanScale ? 'scale':''"></i>
+						</div>
+						<div class="live-zan-count">{{bottomData.liveZanCountStr}}</div>
+						<div class="live-zan-effect">
+							<i class="zan-icon active zan-template"><b class="effect"></b></i>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 弹幕 -->
+			<div class="live-danmu" v-show="bottomData.danmuInit.isShow">
+				<keep-alive>
+					<danmu-tpl ref="danmu-child" :danmu-init="bottomData.danmuInit"></danmu-tpl>
+				</keep-alive>
+			</div>
+		</template>
+		
+		<div class="live-illegal" v-else>
+			<!--违规结构-->
+			<img src="//i.thsi.cn/sns/circle/wapcircle/img2/show/live-illegal.png" alt="" class="illegal-img">
+			<div class="illegal-note">此内容因违规无法查看</div>
+			<a :href="GParam.topFiftyLink" :data-funcstatid="GParam.Gpagestat+'.top50'" class="topFiftyBtn">频道TOP50</a>
+		</div>
+
+		<wapeditor ref="editor-child" :options="bottomData.editorInit"></wapeditor>
+
+		<location-tpl ref="location-child" v-if="headData.showLocationDom" :list="bodyData.liveDataList[0]"></location-tpl>
+	</div>
+</div>
+
+<template id="livelistTplId" style="display: none;">
+	<!-- <div class="livelist-item"> -->
+	<ul class="live-lists-box" v-if="bodyData.hasLive">
+		<li class="livelist-item" :data-pid="list.pid" v-for="(list, index) in bodyData.liveDataList">
+
+			<div class="normal-item por" v-if="list.type == 0">
+				<img :src="list.avatar" alt="" class="item-avatar">
+				<div class="item-body">
+					<div class="item-info clerafix">
+						<div class="fl item-name">{{list.nickname}}</div>
+						<div class="fr item-time c999">{{list.time}}</div>
+					</div>
+					<div class="item-content">
+						<div class="item-content-txt wdwrap" v-html="list.content"></div>
+						<div class="item-content-img img" v-if="list.img"><img :src="list.img" alt=""></div>
+					</div>
+
+					<div class="item-at-box" v-if="list.atcontent && list.atnickname">
+						<div class="item-at-content dib">
+							<span class="item-at-someone">{{list.atnickname}}:</span>
+							<span v-html="list.atcontent"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="audio-item por" v-else-if="list.type == 2">
+				<img :src="list.avatar" alt="" class="item-avatar">
+				<div class="item-body">
+					<div class="item-info clerafix">
+						<div class="fl item-name">{{list.nickname}}</div>
+						<div class="fr item-time c999">{{list.time}}</div>
+					</div>
+					<div class="item-content">
+						<audio-tpl :options="list" ref="audio-ref"></audio-tpl>
+					</div>
+				</div>
+			</div>
+
+			<div class="point-item por" v-else-if="list.type == 4">
+				<img :src="list.avatar" alt="" class="item-avatar">
+				<div class="item-body">
+					<div class="item-info clerafix">
+						<div class="fl item-name">{{list.nickname}}</div>
+						<div class="fr item-time c999">{{list.time}}</div>
+					</div>
+					<div class="item-content" @click="pointJump(index,$event)">
+						<div class="item-content-txt wdwrap" v-html="list.content"></div>
+						<div class="item-content-img img" v-if="list.img"><img :src="list.img" alt=""></div>
+					</div>
+					<div class="item-at-box" v-if="list.atcontent && list.atnickname">
+						<div class="item-at-content dib">
+							<span class="item-at-someone">{{list.atnickname}}:</span>
+							<span v-html="list.atcontent"></span>
+						</div>
+					</div>
+					<ul class="item-operate clearfix">
+						<li class="item-operate-list fl por" :data-funcstatid="GParam.Gpagestat+'.point.share'" @click="pointShare(index, $event)">
+							<i class="new-icons-forward"></i>
+							<span>分享</span>
+						</li>
+						<li class="item-operate-list fl por" :data-funcstatid="GParam.Gpagestat+'.point.comment'" @click="pointJumpCmt(index)">
+							<i class="new-icons-info2"></i>
+							<span v-if="list.cmtNum">{{list.cmtNum}}</span>
+							<span v-else>评论</span>
+						</li>
+						<li class="item-operate-list fl por" :data-funcstatid="GParam.Gpagestat+'.point.like'" @click="pointZanAjax(index, $event)">
+							<i :class="list.isAgree ? 'live-chat-zaned-icon': 'live-chat-zan-icon' "></i>
+							<span v-if="list.zanNum">{{list.zanNum}}</span>
+							<span v-else>点赞</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div v-else></div>
+		</li>
+	</ul>
+</template>
+
+<!--pid定位显示item-->
+<template id="locationTplId" style="display:none;">
+	<div class="location-item">
+		<img :src="list.avatar" alt="" class="item-avatar">
+		<div class="item-body rem14 blacktext">
+			<div class="item-content">
+				<div class="item-content-txt wdwrap rem14" v-html="list.content"></div>
+				<div class="item-content-img img" v-if="list.img"><img :src="list.img" alt=""></div>
+			</div>
+			<div class="item-close lightblue" @click="close">收起</div>
+			<div class="arrow"></div>
+		</div>
+	</div>
+</template>
+
+<!-- wap端使用的输入组件 -->
+
+<template id="wapeditorTpl" style="display: none;">
+	<div class="editorComponent" v-show="isShow">
+		<div class="editor-mask" @touchmove="stopMove"></div>
+		<!-- <div class="editor-wrap por" :style="{height: wrapHeight+'px'}"> -->
+			<div class="editor-box" :style="{top: editorBoxTop+'px'}">
+				<div class="editor-box-head">
+					<div class="fl pr10" @mousedown="cancel(true)" :data-funcstatid="Gpagestat+'.cancel'">取消</div>
+					<div class="fr redtext" :data-funcstatid="Gpagestat+'.send'" @click="send">发送</div>
+					<div class="fr editor-face-btnWrap" v-show="isFaceBtnShow" :data-funcstatid="Gpagestat+'.emoji'" @mousedown="toggleFace"><i :class="isFaceBtnActive ? 'editor-faceActive-btn':'editor-face-btn'"></i></div>
+				</div>
+				<div class="editor-body-wrap">
+					<textarea :placeholder="placeholder" class="editor-box-body" v-focus="isTextareaFocus" @focus="textareaFocus"  v-model="editorVal">
+					</textarea>
+				</div>
+				<div class="word-limit" :class="editorVal.length > wordLimitNum ? 'redtext':''">{{editorVal.length}}/{{wordLimitNum}}</div>
+			</div>
+		<!-- </div> -->
+		<wapface ref="face-child" @insert-face="insertTxt" @del-face="delFaceTxt" :options="faceInit"></wapface>
+	</div>
+</template>
+
+<template id="faceTpl" style="display:none;">
+	<div v-show="isShow" class="face-box">
+		<ul class="face-wrap clearfix">
+			<li class="face-item fl" v-for="(list, index) in faceList" :title="list.value" @click="addFace(index)">
+				<div class="face-item-wrap" :class="list.scale ? 'scale': ''"  @click="scale(index, $event)">
+					<img :src="'//i.thsi.cn/sns/circle/wapcircle/img2/face/'+list.src+'.png'" alt="" :class="list.src == 'f23' || list.src == 'f25' ? 'faceMove1':'' ">
+				</div>
+			</li>
+			<div class="face-del-btn" @click="delFace">
+			<div class="face-del-wrap">
+				<i></i></div>
+			</div>
+		</ul>
+	</div>
+</template>
+
+<script>
+	var recordBodyScrollTop = 0;
+	// 输入 组件
+	Vue.component('wapeditor',{
+		template: '#wapeditorTpl',
+		props: {
+			options: {
+				isShow: {
+					type: Boolean,
+					default: false
+				},
+				isFaceBtnShow: {
+					type: Boolean,
+					default: true
+				},
+				wordLimitNum: {
+					type: Number,
+					default: 100
+				},
+				placeholder: {
+					type: String,
+					default: '我也来说两句'
+				},
+				showCall: {
+					type: Function,
+					default: function(){}
+				},
+				sendCall: {
+					type: Function,
+					default: function(){}
+				},
+				cancelCall: {
+					type: Function,
+					default: function(){}
+				},
+				Gpagestat: {
+					type: String,
+					required: true
+				}
+			}
+		},
+		data: function(){
+			var bodyData = {	//内部变量
+				editorVal: '', //当前输入框的内容
+				placeholder:'我也来说两句',
+				isTextareaFocus: false, //当前输入结构的自定义focus事件需要的变量
+				isFaceBtnActive: false,		//face按钮显示状态，选中 | 非选中
+				isFaceBtnShow: true,		//face按钮 显示
+				winHeight: $(window).height()
+				
+			};
+			$.extend(true,bodyData, this.options);
+			return bodyData;
+		},
+		mounted: function(){
+			this.resize();
+		},
+		computed: {
+			editorBoxTop: function(){
+				var conHeight = this.winHeight;
+				var height = this.isFaceBtnActive ? conHeight-2.3*parseInt($('html').css('font-size')) : conHeight;
+			 	return height/2;
+			}
+		},
+		methods: {
+			show: function(type){
+				this.isShow = true;
+				showMask();
+				this.isTextareaFocus = true;
+				recordBodyScrollTop = $('body').scrollTop();
+
+				if(typeof type != 'undefined' && type == 'face'){
+					//显示表情组件
+					this.isTextareaFocus = false;
+					this.toggleFace();
+				}
+
+				if(this.showCall){
+					this.showCall();
+				}
+			},
+			cancel: function(flag){
+				this.isShow = false;
+				hideMask();
+				this.isTextareaFocus = false;
+				this.isFaceBtnActive = false;
+				this.editorVal = '';
+				if(this.cancelCall && flag){
+					this.cancelCall();
+				}
+
+				$('body').scrollTop(recordBodyScrollTop);
+				if(this.isFaceBtnShow){ //如果存在表情按钮
+					this.hideFace();
+				}
+			},
+			stopMove: function(e){
+				e.preventDefault();
+			},
+			resize: function(){
+				var self = this;
+				$(window).on('resize', function(){
+					//安卓 键盘会导致window窗口改变， IOS不会
+					setTimeout(function(){
+						self.winHeight = $(this).height(); //重置window的高度
+					},100);
+				});
+			},
+			insertTxt: function(txt){ //固定位置插入文本
+				start = this.editorVal.length-1;
+				this.editorVal = this.editorVal + txt;
+			},
+			delTxt: function(start, end){
+				this.editorVal = this.editorVal.substring(0, start)+this.editorVal.substring(end+1, this.editorVal.length);
+			},
+			send: function(){
+				if(!this.editorVal.length){
+	            	alertBox('请输入聊天文字');
+	                return;
+	            }
+
+	            if(this.editorVal.length > this.wordLimitNum){
+	            	alertBox('字数不超过'+this.wordLimitNum+'字');
+	                return;
+	            }
+
+	            var val = this.editorVal;
+				this.cancel();
+				if(this.sendCall && $.isFunction(this.sendCall)){
+					this.sendCall(val);
+				}
+			},
+
+			/*和表情组件相关事件*/
+			delFaceTxt: function(){ //删除start开始的第一个表情的txt字符串
+				var valArr = this.editorVal.split('');
+				var endStr = valArr[valArr.length-1];
+				var startStr = valArr[valArr.length-4];
+				if(endStr == ']' && startStr == '['){
+					//表情结构删除整个
+					this.editorVal = this.editorVal.slice(0,valArr.length-4);
+				}else{
+					this.editorVal = this.editorVal.slice(0,valArr.length-1);
+				}
+
+			},
+			textareaFocus: function(){ //textarea聚焦后执行方法
+				// if(this.isFaceBtnShow){ //输入框聚焦,处理相对应的表情结构
+				this.$refs['face-child'].hide();
+				this.isFaceBtnActive = false;
+				this.resizeMask();
+				// }
+			},
+
+			//重设mask的高度
+			resizeMask: function(){
+				var self = this;
+				setTimeout(function(){
+					if($('.pop_mask1').length && $('.wap-container').length){
+						if($('.wap-container').height() > self.winHeight){
+							$('.pop_mask1').height($('.wap-container').height());
+						}else{
+							$('.pop_mask1').height(self.winHeight);
+						}
+					}
+				},100);
+			},
+
+			/*和face组件挂钩的代码*/
+			toggleFace: function(){
+				var self = this;
+				setTimeout(function(){
+					self.$refs['face-child'].toggle();
+					self.isFaceBtnActive = !self.isFaceBtnActive;
+				},100);
+
+			},
+			hideFace: function(){
+				this.$refs['face-child'].hide();
+				this.isFaceBtnActive = false;
+			}
+		},
+		directives: {
+			focus: {
+				update: function(el, binding){
+					if(binding.value != binding.oldValue){
+						el.focus();
+						setTimeout(function(){
+							el.focus();
+						},200);
+					}
+				}
+			}
+		}
+	});
+
+	//表情组件
+	Vue.component('wapface', {
+		template: '#faceTpl',
+		props: {
+			options: {
+				isShow: {
+					type: Boolean,
+					default: false
+				},
+				faceList: {
+					type: Array,
+					required: true
+				},
+				addCall: {
+					type: Function,
+					default: function(){}
+				},
+				delCall: {
+					type: Function,
+					default: function(){}
+				}
+			}
+		},
+		data: function(){
+			var defaultData = {
+				addFacePos: 0,
+				faceList: [
+					{ value: '[呲牙]', src: 'f0', scale: 0},
+					{ value: '[发呆]', src: 'f1', scale: 0},
+					{ value: '[抠鼻]', src: 'f2', scale: 0},
+					{ value: '[困了]', src: 'f3', scale: 0},
+					{ value: '[撇嘴]', src: 'f4', scale: 0},
+					{ value: '[冷汗]', src: 'f5', scale: 0},
+					{ value: '[亲亲]', src: 'f6', scale: 0},
+					{ value: '[浪笑]', src: 'f7', scale: 0},
+					{ value: '[闭嘴]', src: 'f8', scale: 0},
+					{ value: '[委屈]', src: 'f9', scale: 0},
+					{ value: '[点头]', src: 'f10', scale: 0},
+					{ value: '[花痴]', src: 'f11', scale: 0},
+					{ value: '[再见]', src: 'f12', scale: 0},
+					{ value: '[发怒]', src: 'f13', scale: 0},
+					{ value: '[大骂]', src: 'f14', scale: 0},
+					{ value: '[晕]', src: 'f15', scale: 0},
+					{ value: '[鄙视]', src: 'f16', scale: 0},
+					{ value: '[糗大了]', src: 'f17', scale: 0},
+					{ value: '[鼓掌]', src: 'f18', scale: 0},
+					{ value: '[抓狂]', src: 'f19', scale: 0},
+					{ value: '[叹一口气]', src: 'f20', scale: 0},
+					{ value: '[奋斗]', src: 'f21', scale: 0},
+					{ value: '[猪头]', src: 'f22', scale: 0},
+					{ value: '[上香]', src: 'f23', scale: 0},
+					{ value: '[鲜花]', src: 'f24', scale: 0},
+					{ value: '[蜡烛]', src: 'f25', scale: 0}
+				]
+			};
+			$.extend(true, defaultData, this.options);
+			return defaultData;
+		},
+		methods: {
+			hide: function(){
+				this.isShow = false;
+			},
+			show: function(){
+				var self = this;
+				setTimeout(function(){
+					self.isShow = true;
+				},800);
+			},
+			toggle: function(){
+				var self = this;
+				if(this.isShow){
+					this.isShow = false;
+				}else{
+					setTimeout(function(){
+						self.isShow = true;
+					},800);
+				}
+			},
+			addFace: function(index){
+				var faceTxt = this.faceList[index].value;
+				if(faceTxt.length > 0){
+					this.$emit('insert-face',[faceTxt]);
+				}
+			},
+			delFace: function(){
+				this.$emit('del-face');
+			},
+			scale: function(index, e){
+				var self = this;
+				self.faceList[index].scale = 1;
+				setTimeout(function(){
+					self.faceList[index].scale = 0;
+				},300);
+			},
+		}
+	});
+
+</script>
+
+<style>
+	.pr10{
+		padding-right: 10px;
+	}
+	.editorComponent {
+	  position: fixed;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  z-index: 1200;
+	}
+	.editorComponent .editor-wrap {
+	  width: 100%;
+	}
+	.editorComponent .editor-mask{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	.editorComponent .editor-box {
+	  position: fixed;
+	  left: 8%;
+	  width: 84%;
+	  height: 2.4rem;
+	  margin-top: -1.2rem;
+	  background: #fff;
+	  border-radius: 4px;
+	  -webkit-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+	          box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+	  color: #323232;
+	  /* -webkit-transform: translateY(-50%); */
+	          /* transform: translateY(-50%); */
+	}
+	/* .editorComponent  .editor-box-showface{
+		bottom: 2.3rem;
+		-webkit-transform: translateY(0);
+	          transform: translateY(0);
+	} */
+	.editorComponent .key-active{
+		top: 0;
+		-webkit-transform: translateY(20px);
+      			transform: translateY(20px);
+	}
+
+	.editorComponent .editor-box .editor-box-head {
+	  padding: 0 5%;
+	  height: 0.44rem;
+	  line-height: 0.44rem;
+	  font-size: 0.16rem;
+	  border-bottom: solid 1px #ddd;
+	}
+	.editorComponent .editor-box .editor-body-wrap {
+	  padding: 0.15rem 0;
+	  height: 1.4rem;
+	}
+	.editorComponent .editor-box .editor-box-body {
+	  width: 90%;
+	  height: 1.4rem;
+	  padding: 0 5%;
+	  font-size: 0.17rem;
+	  line-height: 0.2rem;
+	  border-style: none;
+	  resize: none;
+	}
+	.editorComponent .editor-box .editor-face-btnWrap {
+	  width: 0.18rem;
+	  padding-right: 0.07rem;
+	  padding-left: 0.17rem;
+	  height: 100%;
+	  position: relative;
+	  margin-right: 0.07rem;
+	}
+	.editorComponent .editor-box .editor-face-btnWrap .editor-faceActive-btn,
+	.editorComponent .editor-box .editor-face-btnWrap .editor-face-btn {
+	  position: absolute;
+	  top: 0.12rem;
+	}
+	.editorComponent .word-limit {
+	  font-size: 0.12rem;
+	  line-height: 0.14rem;
+	  color: #999;
+	  text-align: left;
+	  padding: 0 5%;
+	}
+	.face-box {
+	  position: fixed;
+	  /* bottom: -2.3rem; */
+	  bottom: 0;
+	  padding: 0.15rem 4% 0.25rem;
+	  height: 1.77rem;
+	  background: #fff;
+	}
+	.face-box .face-wrap {
+	  position: relative;
+	  margin: 0 auto;
+	}
+	.face-box .face-wrap .face-item {
+	  width: 12.5%;
+	}
+	.face-box .face-wrap .face-item .face-item-wrap {
+	  width: 0.32rem;
+	  height: 0.32rem;
+	  border-radius: 50%;
+	  background: #f4f4f4;
+	  overflow: hidden;
+	  text-align: center;
+	  margin: 0 auto 0.15rem;
+	  trsnsition: transform 0.2s ease-out;
+	}
+	.face-box .face-wrap .face-item .scale{
+		transform: scale(0.9);
+	}
+	.face-box .face-wrap .face-item .face-item-wrap img {
+	  position: relative;
+	  top: 0.01rem;
+	  width: 0.3rem;
+	  height: 0.3rem;
+	}
+	.face-box .face-wrap .face-item .face-item-wrap .faceMove1{
+		top: 0.05rem;
+		width: 0.28rem;
+	}
+	.face-box .face-wrap .face-del-btn {
+	  width: 12.5%;
+	  position: absolute;
+	  bottom: 0;
+	  right: 0;
+	}
+	.face-box .face-wrap .face-del-btn .face-del-wrap {
+	  position: relative;
+	  width: 0.32rem;
+	  height: 0.32rem;
+	  border-radius: 50%;
+	  background: #f4f4f4;
+	  overflow: hidden;
+	  text-align: center;
+	  margin: 0 auto 0.15rem;
+	}
+	.face-box .face-wrap .face-del-btn .face-del-wrap i {
+	  display: inline-block;
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  margin-left: -0.11rem;
+	  margin-top: -0.07rem;
+	  width: 0.2rem;
+	  height: 0.14rem;
+	  background: url(//i.thsi.cn/sns/circle/wapcircle/img2/face/editor-face-back.png) no-repeat;
+	  background-size: contain;
+	}
+</style><!--
+  * @author: yaoyongfang@myhexin.com
+  * @date: 2017-07-27 19:29:50
+  * @func: audio
+-->
+<template id="audioTplId" style="display: none;">
+	<div class="audio-box clearfix" :data-recordCurrentTime="recordCurrentTime" :data-audioTime="audioTime">
+		<div class="audio-wrap fl">
+			<div class="audio-line-out">
+				<div class="audio-line-in" :style="{ width: btnLeft }"></div>
+			</div>
+			<div class="audio-btn audio-play" v-show="!playStatus" @click="play($event)" @touchstart.stop="touchstart" @touchmove.stop="touchmove" @touchend.stop="touchend" :style="{ left: btnLeft }"></div>
+			<div class="audio-btn audio-pause" v-show="playStatus" @click="pause($event)" @touchstart.stop="touchstart" @touchmove.stop="touchmove" @touchend.stop="touchend" :style="{ left: btnLeft }"></div>
+		</div>
+		<div class="audio-total-time c999 rem12 fl">{{audioTime}}''</div>
+	</div>
+</template>
+
+<script>
+	Vue.component('audio-tpl', {
+		template: '#audioTplId',
+		props: {
+			options: {
+				audioTime: {
+					type: Number,
+					required: true
+				},
+				audiosrc: {
+					type: String,
+					required: true
+				}
+			}
+		},
+		data: function(){
+			var innerData = {
+				audioTime: 0, //总时间 from options
+				audiosrc: '', //src传递至 from options
+				recordCurrentTime: 0, //前端记录的当前时间
+				playStatus: 0, // 0 暂停  1 播放中
+				// isContinue: false, //拖动后是否继续播放，更随拖动前状态【拖动中默认都暂停】
+				hasLoad: 0,	//是否加载过资源
+
+				baseLeft : 0, 	//容器基础左边距
+				totalLong : 0,	//轨道长度
+				btnWidth: 0,	//按钮大小
+
+				fsize : parseInt($('html').css('font-size')),  //rem参考比例
+				canMoving: 0, //进度条是否可以拖动
+				curX: 0
+			};
+			$.extend(true, innerData, this.options);
+			innerData.audioTime = parseInt(innerData.audioTime);
+			return innerData;
+		},
+		computed: {
+			btnLeft: function(){
+				if(!this.hasLoad){
+					return 0;
+				}
+				if(Math.abs(this.curX) > 0){
+					if(this.curX < this.baseLeft){
+						this.recordCurrentTime = 0;
+						return 0;
+					}else if(this.curX >= this.baseLeft+this.totalLong+this.btnWidth){
+						this.recordCurrentTime = this.audioTime;
+						return this.totalLong +'px';
+					}else{
+						var length = this.curX-this.baseLeft-this.btnWidth/2;
+						this.recordCurrentTime = parseFloat(length/this.totalLong*this.audioTime);
+						return length +'px';
+					}
+				}else{
+					return this.recordCurrentTime/this.audioTime*1.94+'rem';
+				}
+			}
+		},
+		mounted: function(){
+			this.init();
+			this.baseLeft = $('.audio-wrap').offset().left;
+			this.btnWidth = $('.audio-btn').width();
+			this.totalLong = $('.audio-wrap').width() - this.btnWidth;
+		},
+		methods: {
+			init: function(){
+				var self = this;
+				self.audio = new Audio();
+				self.bindEvent();
+			},
+			stopAll: function(target){ //遍历暂停所有音频，同时重置其他音频的状态
+				var $audioList = this.$parent.$refs['audio-ref'];
+				for(var i=0; i < $audioList.length; i++){
+					$audioList[i].pause();
+					$audioList[i].playStatus = 0;
+
+					if(target != $audioList[i]){ //当前的点击不会重置轨道
+						$audioList[i].recordCurrentTime = 0;
+					}
+				}
+			},
+			play: function(){ //播放音频
+				var self = this;
+				if(self.recordCurrentTime >= self.audioTime - 0.5){
+					//说明已经播放结束，重置1
+					self.audio.currentTime = 0;
+					self.audio.play();
+					if(getPlatform() == 'gphone'){
+						self.audio.pause();
+						self.audio.currentTime = 0;
+						self.audio.play();
+					}
+					self.playTimer();
+					self.playStatus = 1;
+					return;
+				}
+
+				self.stopAll(self);
+				if(!self.hasLoad){ //防止多次加载资源
+					var src = self.audiosrc;
+					if(!self.audio){
+						self.audio = new Audio();
+					}else{
+						self.audio.pause();
+					}
+					self.audio.src = src;
+					self.audio.load();
+					self.hasLoad = 1;
+					
+				}
+
+
+				if(self.recordCurrentTime <= self.audioTime && self.recordCurrentTime > 0){ //判断是否已经播放到最后
+					self.audio.currentTime = self.recordCurrentTime;
+				}
+				self.audio.play();
+				if(getPlatform() == 'gphone'){
+					self.audio.pause();
+					if(self.recordCurrentTime <= self.audioTime && self.recordCurrentTime > 0){ //判断是否已经播放到最后
+						self.audio.currentTime = self.recordCurrentTime;
+					}
+					self.audio.play();
+				}
+				self.playTimer();
+				self.playStatus = 1;
+			},
+			playTimer: function(){ //播放时候的轮询改变轨道
+				var self = this;
+				self.audioTimer = setInterval(function(){
+					self.recordCurrentTime = self.audio.currentTime;
+					if(self.recordCurrentTime >= self.audioTime){
+						self.pause();
+					}
+				},50);
+			},
+			pause: function(){ //暂停音频
+				var self = this;
+				if(!self.audio){
+					this.play();
+				}
+				if(!self.audio.paused){
+					setTimeout(function(){ //防止报错【audio先执行play，马上pause导致报错】
+						self.audio.pause();
+					},50);
+				}
+				this.playStatus = 0;
+				clearInterval(self.audioTimer);
+			},
+			bindEvent: function(){
+				var self = this;
+				$(self.audio).on('ended', function(){
+					clearInterval(this.audioTimer);
+					self.playStatus = 0;
+				});
+
+				// $(self.audio).on('canplaythrough', function(){
+				// 	if(parseInt(self.audioTime) != self.audio.duration){
+				// 		self.audioTime = parseInt(self.audio.duration);
+				// 	}
+				// });
+			},
+			touchstart: function(e){
+				this.canMoving = 1;
+				// this.isContinue = this.playStatus;
+			},
+			touchmove: function(e){ 
+				e.preventDefault();
+				if(this.canMoving){
+					this.pause();
+					this.curX = e.changedTouches[0].clientX;
+				}
+			},
+			touchend: function(e){
+				this.canMoving = 0;
+				this.curX = 0;
+				
+				// if(this.isContinue){
+				// 	this.play();
+				// }
+			}
+		}
+	});
+</script>
+
+<style>
+	.wap-container .audio-box {
+		height: 0.26rem;
+		margin-top: 0.1rem;
+	}
+	.wap-container .audio-box .audio-wrap {
+		position: relative;
+		width: 2.2rem;
+		height: 0.04rem;
+		padding: 0.11rem 0;
+		margin-right: 0.1rem;
+	}
+	.wap-container .audio-box .audio-wrap .audio-line-out {
+		position: relative;
+		width: 100%;
+		height: 0.04rem;
+		background: #eee;
+		border-radius: 2px;
+		overflow: hidden;
+	}
+	.wap-container .audio-box .audio-wrap .audio-line-in {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 0.13rem;
+		height: 100%;
+		background: #323232;
+	}
+	.wap-container .audio-box .audio-wrap .audio-btn {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 0.26rem;
+		height: 0.26rem;
+	}
+	.wap-container .audio-box .audio-wrap .audio-play {
+		background: url(//i.thsi.cn/sns/circle/wapcircle/img2/show/show-audio-play.png) no-repeat;
+		background-size: contain;
+	}
+	.wap-container .audio-box .audio-wrap .audio-pause {
+		background: url(//i.thsi.cn/sns/circle/wapcircle/img2/show/show-audio-stop.png) no-repeat;
+		background-size: contain;
+	}
+	.wap-container .audio-box .audio-total-time {
+		line-height: 0.26rem;
+	}
+</style><!--
+	/**
+	 * @author: yaoyongfang@myhexin.com
+	 * @date: 2017-08-29 10:17:18
+	 * @func: 弹幕
+	 */
+-->
+<script type="text/javascript" src="//s.thsi.cn/sns/sea-modules/gallery/danmu/danMu.beta.min.js"></script>
+<template id="danmu" style="display: none;">
+	<div class="danmuStage">
+
+	</div>
+</template>
+
+<script>
+	Vue.component('danmu-tpl', {
+		template: '#danmu',
+		props: ['danmuInit'],
+		data: function(){
+			return {};
+		},
+		mounted: function(){
+			var self = this;
+			self.init();
+		},
+		methods: {
+			init: function(){
+				var self = this;
+				var opt = {
+					device: 'm',
+					stage: $('.danmuStage'),
+					danMuHtml: '<div class="danmu-item" data-label="{userId}">{comment}</div>',
+					comments: [],
+					colors: ['#fff'],
+					flyTime: 10000,
+					timeInterval: 4000,
+					randomSort: false,
+					hSpacing: 0.33,
+					myDanMuPrefix: '',
+					showMyStyle: true,
+					hSpacingFixed: true,
+					uniqueTagName: 'label',
+					loop: false
+				};
+				$.extend(true, opt, this.danmuInit.opt);
+				self.dm = new danMu(opt);
+			},
+
+			pause: function(callback){
+				this.dm.pause(callback);
+			},
+
+			play: function(callback){
+				this.dm.play(callback);
+			},
+
+			//追加弹幕 data必须是数组
+			append: function(data, callback){
+				this.dm.append(data, callback);
+			},
+
+			//当前用户发送弹幕 data string
+			send: function(data,callback){
+				this.dm.triggerSend(data,callback);
+			}
+		}
+	});
+</script>
+
+<style>
+	.danmuStage{
+		width: 100%;
+		height: 100%;
+	}
+	.danmu{
+		color: #fff;
+		z-index: 10;
+	}
+	/* 第一条信息提示的改变颜色 */
+	.danmu-item[data-label='0']{
+		color: #ffde00;
+	}
+	.mydanmu .danmu-item{
+		color: #ffde00;
+		z-index: 11;
+	}
+	.danmu-item {
+		padding: 0 0.12rem;
+		height: 0.3rem;
+		line-height: 0.3rem;
+		color: #fff;
+		font-size: 0.12rem;
+		background: rgba(0,0,0,.6);
+		border-radius: 0.15rem;
+	}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		pageStat(initData.GParam.Gpagestat, 'sns_live_channel_all,sns_live_channel_live,sns_live,ths_all_broadcast');
+	});
+</script>
+
+</body>
+<script type="text/javascript">
+	// //去除字体大小控制
+	if(getPlatform() == 'gphone' && getApp() != 'liejin' ){
+		callNativeHandler('webViewFontController','{fontsize:0,switch:0}',function(){});
+	}
+
+</script>
+</html>
