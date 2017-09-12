@@ -1,0 +1,17 @@
+测试浏览器 UC。
+IOS
+box
+    display: flex;
+    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+content
+    flex: 1;
+    flex: 0 1 auto;
+
+
+
+安卓
+5.1.1 HuaWei OK
+4.0 galaxy nexus OK
+4.0 魅族 MX2  OK
