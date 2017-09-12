@@ -1,0 +1,40 @@
+.a .wrap {
+  display: flex;
+  width: 100%;
+}
+.a .wrap .line {
+  flex: 1;
+  border: 1px solid #000;
+  background-color: #d0d0d0;
+}
+.a .wrap2 {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.a .wrap2 .line {
+  flex: 1;
+  border: 1px solid #000;
+  background-color: #d0d0d0;
+}
+.a .wrap3 {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.a .wrap3 .line {
+  flex: 0 1 auto;
+  border: 1px solid #000;
+  background-color: #d0d0d0;
+  width: 20px;
+}
+.a ul {
+  list-style: none;
+}
+.a * {
+  margin: 0;
+  padding: 0;
+}

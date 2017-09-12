@@ -30,7 +30,11 @@
   "devDependencies": {
     "cheerio": "^0.22.0",
     "chrome": "0.1.0",
+    "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
+    "grunt-contrib-less": "^1.4.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-watchify": "^0.1.0",
     "gulp": "^3.9.1",
     "jscs": "2.11.0",
     "jshint": "2.9.1",
