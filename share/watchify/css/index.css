@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* 股民学校首页 */
+.wap-container {
+  font-size: .12rem;
+}
+.schoolindex-container {
+  font-size: .12rem;
+}
+.schoolindex-container #slider .slide-trigger {
+  width: .46rem;
+  left: auto;
+  right: 0.16rem;
+  bottom: 0.08rem;
+  justify-content: flex-end;
+}
+.schoolindex-container #slider .slide-trigger li {
+  background-color: #af9d9d;
+}
+.schoolindex-container #slider .slide-trigger li.cur {
+  background-color: #da2626;
+}
+.schoolindex-container #slider .title {
+  width: 3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
