@@ -1,14 +1,14 @@
 module.exports = function(grunt) {
 
-  var watchifyPath = 'share/watchify/';
+  var watchifyPath = './share/watchify/';
 
   grunt.initConfig({
     less:{
       lesstask:{
         files:[{
           expand:true,
-          cwd:'./share/watchify/less',
-          dest:'./share/watchify/css',
+          cwd:watchifyPath + 'less',
+          dest:watchifyPath + 'css',
           src:'*.less',
           ext:'.css'
         }]
@@ -16,7 +16,7 @@ module.exports = function(grunt) {
     },
     watch: {
       watchtask:{
-        files:['./less/*.less'],
+        files:[ watchifyPath + '*.less'],
         tasks:['less']
       }
     }
@@ -25,6 +25,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['less']);
-
+  grunt.registerTask('default', ['watch']);
 };
