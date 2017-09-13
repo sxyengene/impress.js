@@ -1,3 +1,6 @@
+.a .a {
+  width: 100px;
+}
 .a .wrap {
   display: flex;
   width: 100%;
